@@ -50,21 +50,7 @@ O Fiscalizei transforma o controle de atividades de merchandising em um processo
 
 ## Fluxo principal do sistema
 
-```mermaid
-flowchart TD
-    A[Início] --> B{Admin: Planejamento}
-    B -->|Cria Demandas com Recorrência e Atribui a Funcionários| C[Distribuição de Tarefas]
-    C --> D{Estoquista: Execução Mobile}
-    D -->|Visualiza Checklist Diário| E[Executa Tarefa]
-    E --> F[Envia Foto como Evidência]
-    F --> G[Tarefa Muda para 'Em Análise']
-    G --> H{Admin: Auditoria e Feedback}
-    H -->|Aprova| I[Tarefa Finalizada]
-    H -->|Reprova com Comentário| J[Tarefa Volta para Estoquista]
-    J --> D
-    I --> K[Inteligência de Dados]
-    K -->|Gera Relatórios, Rankings e Histórico Visual| L[Fim]
-```
+Link do fluxo: https://www.figma.com/board/m9zLMuDZGRcdk12Ut5N3Zn/Userflow-Fiscalizei?node-id=0-1&t=p271u1FcwG2SXxMu-1
 
 ---
 
