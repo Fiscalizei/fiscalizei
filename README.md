@@ -36,7 +36,6 @@ O Fiscalizei transforma o controle de atividades de merchandising em um processo
 - HTML5, CSS3, JavaScript (ES6+)
 - Bootstrap 5 (responsividade)
 - Axios (chamadas API)
-- Chart.js (gráficos de relatórios – opcional)
 
 ### Outros
 - Git
@@ -55,7 +54,6 @@ Link do fluxo: https://www.figma.com/board/m9zLMuDZGRcdk12Ut5N3Zn/Userflow-Fisca
 - **RF01:** Administrador cria tarefas com descrição, recorrência e atribuição  
 - **RF02:** Estoquista visualiza e conclui tarefas com upload de foto  
 - **RF03:** Administrador aprova/reprova tarefas com feedback  
-- **RF04:** Geração de relatórios (ranking, reprovações, histórico)  
 - **RF05:** Autenticação e autorização (Admin × Estoquista)  
 - **RF06:** Notificações em tempo real (novas tarefas / reprovações)  
 - **RF07:** Armazenamento e exibição de fotos com timestamp  
