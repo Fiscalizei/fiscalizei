@@ -1,8 +1,8 @@
 # Fiscalizei
 
-O **Fiscalizei** é uma plataforma de gestão de **trade marketing** e **merchandising** projetada para otimizar a eficiência operacional em redes atacadistas. O sistema substitui a supervisão subjetiva por uma gestão baseada em evidências, conectando gestores (**Administradores**) aos funcionários no campo (**Estoquistas**) em tempo real.
+O **Fiscalizei** é uma plataforma de gestão de **merchandising** projetada para otimizar a eficiência operacional em redes atacadistas. O sistema substitui a supervisão subjetiva por uma gestão baseada em evidências, conectando gestores (**Administradores**) aos funcionários no campo (**Estoquistas**) em tempo real.
 
-A plataforma utiliza **Java com Spring Boot** no backend e **HTML/CSS/JavaScript** no frontend (com abordagem **mobile-first**), permitindo a **criação, distribuição, execução e auditoria** de tarefas diárias, semanais ou mensais, com comprovação por **fotos**.
+A plataforma utiliza **Java com Spring Boot** no backend e **HTML/CSS/JavaScript** no frontend, permitindo a **criação, distribuição, execução e auditoria** de tarefas diárias, semanais ou mensais, com comprovação por **fotos**.
 
 ---
 
@@ -20,9 +20,6 @@ O Fiscalizei transforma o controle de atividades de merchandising em um processo
 
 3. **Auditoria e Feedback (Admin)**  
    Administradores analisam **fotos + horário**, aprovam ou reprovam (com comentário). Tarefas reprovadas voltam imediatamente para o estoquista.
-
-4. **Inteligência de Dados**  
-   Gera relatórios de produtividade, ranking por funcionário, áreas com maior índice de reprovação e histórico visual (fotos) da loja.
 
 ---
 
@@ -43,7 +40,6 @@ O Fiscalizei transforma o controle de atividades de merchandising em um processo
 
 ### Outros
 - Git
-- Armazenamento de imagens (filesystem local ou AWS S3)
 - Autenticação JWT
 
 ---
@@ -72,7 +68,6 @@ Link do fluxo: https://www.figma.com/board/m9zLMuDZGRcdk12Ut5N3Zn/Userflow-Fisca
 - Suporte inicial: até 100 usuários simultâneos  
 - Interface responsiva (mobile-first para estoquistas)  
 - Segurança: JWT, hash de senhas, validação de uploads  
-- Compatibilidade: navegadores modernos + Android/iOS via navegador  
 
 ---
 
@@ -93,7 +88,6 @@ fiscalizei-backend/
 │   │   │   └── FiscalizeiApplication.java
 │   │   └── resources/
 │   │       ├── application.properties
-│   │       └── static/         # (opcional)
 │   └── test/
 ├── pom.xml
 └── README.md
@@ -127,7 +121,6 @@ fiscalizei-frontend/
 - email
 - senha (hash)
 - role (ADMIN / ESTOQUISTA)
-- setor (opcional)
 
 ### Tarefa
 - id (PK)
@@ -165,6 +158,3 @@ fiscalizei-frontend/
 - `GET /tarefas/minhas`
 - `POST /tarefas/{id}/evidencia` *(multipart/form-data com foto)*
 
-### Relatórios
-- `GET /relatorios/ranking`
-- `GET /relatorios/historico`
