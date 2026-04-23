@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiscalizei Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <main class="login-container">
+        
+        <section class="image-section">
+            <img src="recursos/imagens/entregador.jpg.png" alt="Entregador Fiscalizei">
+        </section>
+
+        <section class="form-section">
+            <div id="login-box" class="content-box">
+                <img src="recursos/imagens/logo.png.png" alt="Logo Fiscalizei" class="logo">
+                
+                <form id="loginForm">
+                    <div class="input-group">
+                        <input type="email" id="email" placeholder="E-mail" required>
+                    </div>
+                    
+                    <div class="input-group password-group">
+                        <input type="password" id="senha" placeholder="Senha" required>
+                        <span class="toggle-password" id="togglePassword">👁️</span>
+                    </div>
+
+                    <button type="submit" class="btn-login">Conectar</button>
+                </form>
+            </div>
+
+            <div id="loading-box" class="content-box hidden">
+                <img src="recursos/imagens/logo.png.png" alt="Logo Fiscalizei" class="logo">
+                <div class="spinner"></div>
+                <p class="loading-text">Carregando</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
