@@ -75,7 +75,6 @@ public class UsuarioService {
         if (!usuario.getSenha().equals(loginDTO.password())) {
             throw new UsuarioException("Senha inválida!");
         }
-
         return usuario;
     }
 }
