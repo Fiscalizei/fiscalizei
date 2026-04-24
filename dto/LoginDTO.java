@@ -7,5 +7,5 @@ public record LoginDTO (
         String email,
 
         @NotBlank(message = "Senha do usuário inválido")
-        String password
+        String senha
 ) {}

@@ -41,6 +41,7 @@ public class Usuario {
         this.senha = senha;
         this.roleUsuario = roleUsuario;
         this.ativo = ativo;
+        this.dataCriacao = LocalDateTime.now();
     }
 
     public Long getId() {

@@ -72,7 +72,7 @@ public class UsuarioService {
     public Usuario login(LoginDTO loginDTO) {
         Usuario usuario = buscarEmail(loginDTO.email());
 
-        if (!usuario.getSenha().equals(loginDTO.password())) {
+        if (!usuario.getSenha().equals(loginDTO.senha())) {
             throw new UsuarioException("Senha inválida!");
         }
         return usuario;
