@@ -31,3 +31,15 @@ build/
 
 ### VS Code ###
 .vscode/
+
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+/help.md
+.mtj.tmp/
+*.class
+.project
+.settings/
+.classpath
+.factorypath
+.idea/
+*.iml
