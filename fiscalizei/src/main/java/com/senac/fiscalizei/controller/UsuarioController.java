@@ -21,8 +21,7 @@ public class UsuarioController {
     public UsuarioController(UsuarioService service) {
         this.service = service;
     }
-
-    @GetMapping("/")
+    
     public ResponseEntity<List<Usuario>> todosUsuarios() {
         return ResponseEntity.ok(service.listarTodos());
     }
@@ -34,12 +33,11 @@ public class UsuarioController {
         return ResponseEntity.ok(usuario);
     }
 
-    @PostMapping("/")
     public ResponseEntity<Usuario> cadastrar(@RequestBody @Valid UsuarioDTO usuarioDTO) {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.criar(usuarioDTO));
     }
 
-    @PutMapping("/")
+    @PutMapping("/{id}")
     public ResponseEntity<Usuario> atualizar(@PathVariable Long id, @RequestBody @Valid UsuarioDTO usuarioDTO) {
         return ResponseEntity.ok(service.atualizar(id, usuarioDTO));
     }
