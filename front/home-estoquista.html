@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FISCALIZEI - Minhas Tarefas</title>
+    <link rel="stylesheet" href="css/home-estoquista.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <img class="logo-text" src="recursos/imagens/logoMobile.svg" alt="">
+        </div>
+        <div class="menu-btn">☰</div>
+    </div>
+
+    <!-- Title -->
+    <div class="title">Minhas Tarefas:</div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+        <div class="tab active" onclick="changeTab(this)">A fazer</div>
+        <div class="tab" onclick="changeTab(this)">Em Progresso</div>
+        <div class="tab" onclick="changeTab(this)">Concluídas</div>
+    </div>
+
+    <!-- Tasks List -->
+    <div class="tasks-list" id="tasks-list">
+        <!-- Cards serão inseridos via JS -->
+    </div>
+
+    <script src="js/home-estoquista.js"></script>
+</body>
+
+</html>

@@ -6,28 +6,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const loadingBox = document.getElementById('loading-box');
     const emailInput = document.getElementById('email');
     const senhaInput = document.getElementById('senha');
-    
+
     // Botão de mostrar/ocultar senha
     const togglePassword = document.getElementById('togglePassword');
-    
+
     // Verifica se o botão existe
     if (togglePassword) {
         togglePassword.addEventListener('click', () => {
-            
+
             // Alterna entre "password" (escondido) e "text" (visível)
             const type = senhaInput.getAttribute('type') === 'password' ? 'text' : 'password';
-            
+
             // Aplica o novo tipo no input
             senhaInput.setAttribute('type', type);
-            
+
             // Troca o ícone (olho aberto e olho fechado)
             togglePassword.textContent = type === 'password' ? '👁️' : '🙈';
         });
     }
-     
+
     // dispara o evento quando envia o formulario
     loginForm.addEventListener('submit', async (e) => {
-        e.preventDefault(); 
+        e.preventDefault();
 
 
         //pega os valores digitados e remove espaços extras
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             // Faz requisição para API de login
-            const resposta = await fetch('http://localhost:8080/api/v1/auth/login', {
+            const resposta = await fetch('http://localhost:8080/api/usuario/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -66,20 +66,39 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
             });
 
-            // Se login deu certo
             if (resposta.ok) {
-                // Converte resposta em JSON
-                const dados = await resposta.json();
-                 // Salva o token no navegador
-                localStorage.setItem('token', dados.token); 
-                
-               
-                
-                alert('Login efetuado com sucesso!');
-            } else {
-                // Se credenciais inválidas
-                throw new Error('E-mail ou senha incorretos.');
+            const dados = await resposta.json();
+
+            // Salva o token (se existir)
+            if (dados.token) {
+                localStorage.setItem('token', dados.token);
             }
+
+            // Salva os dados do usuário
+            localStorage.setItem('user', JSON.stringify({
+                nome: dados.nome,
+                email: dados.email,
+                role: dados.role
+            }));
+
+            // Redirecionamento baseado no role
+            if (dados.role === 'ADMIN') {
+                alert(`Bem-vindo, ${dados.nome || 'Administrador'}!`);
+                window.location.href = '/admin/dashboard.html';
+            } 
+            else if (dados.role === 'COLABORADOR') {
+                window.location.href = 'home-estoquista.html';
+            } 
+            else {
+                alert('Perfil de usuário não reconhecido.');
+                localStorage.clear();
+                window.location.href = 'login.html';
+            }
+
+        } else {
+            // Se credenciais inválidas
+            throw new Error('E-mail ou senha incorretos.');
+        }
 
         } catch (erro) {
             // Erro de conexão ou falha no login
@@ -90,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
             loginBox.classList.remove('hidden');
 
             // Limpa senha
-            senhaInput.value = ''; 
+            senhaInput.value = '';
 
             // Volta input para tipo password
             senhaInput.setAttribute('type', 'password');
