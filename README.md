@@ -26,7 +26,7 @@ O Fiscalizei transforma o controle de atividades de merchandising em um processo
 ## Tecnologias
 
 ### Backend
-- Java 17+
+- Java 21
 - Spring Boot 3.x (Web, Data JPA, Security)
 - PostgreSQL (ou MySQL)
 - Maven
