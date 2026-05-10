@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FISCALIZEI - Minhas Tarefas</title>
     <link rel="stylesheet" href="css/home-estoquista.css">
+    <link rel="stylesheet" href="css/sidebar.css">
 </head>
 
 <body>
@@ -13,7 +14,7 @@
         <div class="logo">
             <img class="logo-text" src="recursos/imagens/logoMobile.svg" alt="">
         </div>
-        <div class="menu-btn">☰</div>
+        <div class="menu-btn" onclick="sidebarAbrir()" aria-label="Abrir menu">☰</div>
     </div>
 
     <!-- Title -->
@@ -30,6 +31,8 @@
     <div class="tasks-list" id="tasks-list">
         <!-- Cards serão inseridos via JS -->
     </div>
+
+    <script src="js/sidebar.js"></script>
 
     <script src="js/home-estoquista.js"></script>
 </body>
