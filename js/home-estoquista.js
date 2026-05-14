@@ -1,53 +1,93 @@
 // ─── Dados das tarefas ────────────────────────────────────────────
 // status possíveis: 'pendente' | 'progresso' | 'concluida'
-var tasks = [
-    { title: "Conferir recebimento da carga", subtitle: "Corredor A", id: "#TH123", status: "pendente"  },
-    { title: "Conferir recebimento da carga", subtitle: "Corredor B", id: "#TH124", status: "progresso" },
-    { title: "Verificar qualidade do produto", subtitle: "Armazém 1", id: "#TH125", status: "concluida" },
-    { title: "Organizar estoque",              subtitle: "Seção C",   id: "#TH126", status: "pendente"  },
-    { title: "Reabastecer prateleiras",        subtitle: "Corredor D",id: "#TH127", status: "progresso" }
-];
 
-// ─── Mapa de status → label e classe CSS ─────────────────────────
+async function todasTarefas() {
+    var token = localStorage.getItem('token') || '';
+
+    var resposta = await fetch('http://localhost:8080/api/tarefa', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        }
+    });
+
+    if (!resposta.ok) {
+        throw new Error('Tarefa não encontrada (status ' + resposta.status + ')');
+    }
+
+    console.log(resposta.json())
+
+    return await resposta.json();
+}
+
+// var tasks = [
+//     { title: "Conferir recebimento da carga", subtitle: "Corredor A", id: "TH123", status: "pendente"  },
+//     { title: "Conferir recebimento da carga", subtitle: "Corredor B", id: "TH124", status: "progresso" },
+//     { title: "Verificar qualidade do produto", subtitle: "Armazém 1", id: "TH125", status: "concluida" },
+//     { title: "Organizar estoque",              subtitle: "Seção C",   id: "TH126", status: "pendente"  },
+//     { title: "Reabastecer prateleiras",        subtitle: "Corredor D",id: "TH127", status: "progresso" }
+// ];
+
+var tasks = todasTarefas();
+
+// ─── Mapa de status (Ajustado para o retorno em Maiúsculas do Java) ──────
 var STATUS_CONFIG = {
-    pendente:  { label: 'Pendente',  classe: 'status-pendente'  },
-    progresso: { label: 'Progresso', classe: 'status-progresso' },
-    concluida: { label: 'Concluída', classe: 'status-concluida' }
+    'PENDENTE':  { label: 'Pendente',  classe: 'status-pendente'  },
+    'PROGRESSO': { label: 'Progresso', classe: 'status-progresso' },
+    'CONCLUIDA': { label: 'Concluída', classe: 'status-concluida' }
 };
 
-// ─── Tab ativa no momento ─────────────────────────────────────────
-var tabAtiva = 'afazer'; // 'afazer' | 'progresso' | 'concluidas'
+// ─── Tab ativa ────────────────────────────────────────────────────
+var tabAtiva = 'afazer'; 
 
-// ─── Cards de tarefas ────────────────────────────────────────────
+function abrirTarefa(id) {
+    window.location.href = 'detalhe-tarefa.html?id=' + id;
+}
+
+// ─── Cards de tarefas (Ajustado para os novos campos) ──────────────
 function createTaskCard(task) {
-    var config = STATUS_CONFIG[task.status] || STATUS_CONFIG['pendente'];
+    // Busca a configuração usando o status vindo do banco (ex: "PENDENTE")
+    var config = STATUS_CONFIG[task.status] || STATUS_CONFIG['PENDENTE'];
 
     var card = document.createElement('div');
     card.className = 'task-card';
+    card.style.cursor = 'pointer';
+
+    // Mapeamento:
+    // title -> task.descricao
+    // subtitle -> task.recorrencia
+    // id -> task.id
     card.innerHTML = ''
         + '<div class="task-icon">'
         +     '<img src="recursos/imagens/icon-task.svg" alt="">'
         + '</div>'
         + '<div class="task-content">'
-        +     '<div class="task-title">'      + task.title    + '</div>'
-        +     '<div class="task-subtitle">- ' + task.subtitle + '</div>'
-        +     '<div class="task-id">ID: '     + task.id       + '</div>'
+        +     '<div class="task-title">'      + task.descricao    + '</div>'
+        +     '<div class="task-subtitle">Recorrência: ' + task.recorrencia + '</div>'
+        +     '<div class="task-id">ID: #'   + task.id       + '</div>'
         + '</div>'
         + '<span class="task-status ' + config.classe + '">' + config.label + '</span>';
+
+    card.addEventListener('click', function() {
+        abrirTarefa(task.id);
+    });
 
     return card;
 }
 
-// ─── Filtra tarefas pela tab ativa ───────────────────────────────
+// ─── Filtra tarefas (Ajustado para comparar com Strings MAIÚSCULAS) ──────
 function getTasksFiltradas() {
-    if (tabAtiva === 'afazer')     return tasks.filter(function(t) { return t.status === 'pendente';  });
-    if (tabAtiva === 'progresso')  return tasks.filter(function(t) { return t.status === 'progresso'; });
-    if (tabAtiva === 'concluidas') return tasks.filter(function(t) { return t.status === 'concluida'; });
+    if (tabAtiva === 'afazer')     return tasks.filter(function(t) { return t.status === 'PENDENTE';  });
+    if (tabAtiva === 'progresso')  return tasks.filter(function(t) { return t.status === 'PROGRESSO'; });
+    if (tabAtiva === 'concluidas') return tasks.filter(function(t) { return t.status === 'CONCLUIDA'; });
     return tasks;
 }
 
 function loadTasks() {
     var container = document.getElementById('tasks-list');
+    if (!container) return;
+    
     container.innerHTML = '';
     var filtradas = getTasksFiltradas();
 
@@ -61,7 +101,6 @@ function loadTasks() {
     }
 }
 
-// ─── Troca de tab ────────────────────────────────────────────────
 function changeTab(tabElement) {
     var tabs = document.querySelectorAll('.tab');
     for (var i = 0; i < tabs.length; i++) {
@@ -77,15 +116,24 @@ function changeTab(tabElement) {
     loadTasks();
 }
 
-// ─── Inicialização geral ─────────────────────────────────────────
 window.onload = function() {
     var userData = JSON.parse(localStorage.getItem('user') || '{}');
 
-    initSidebar({
-        nome: userData.nome || 'Usuário',
-        cargo: userData.role || 'Colaborador',
-        paginaAtiva: 'tarefas'
-    });
+    // Inicializa sidebar (se a função existir no seu projeto)
+    if (typeof initSidebar === "function") {
+        initSidebar({
+            nome: userData.nome || 'Usuário',
+            cargo: userData.role || 'Colaborador',
+            paginaAtiva: 'tarefas'
+        });
+    }
 
-    loadTasks();
+    // Exemplo de como você deve carregar os dados da sua API
+    fetch('http://localhost:8080/api/tarefa')
+        .then(response => response.json())
+        .then(data => {
+            tasks = data; // Armazena o retorno da API na variável global
+            loadTasks();
+        })
+        .catch(err => console.error("Erro ao carregar tarefas:", err));
 };
