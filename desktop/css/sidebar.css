@@ -1,0 +1,62 @@
+/* sidebar.css — Estilos compartilhados da sidebar */
+
+.sidebar {
+  width: 90px;
+  background-color: #F8FAFD;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px 0 20px 20px;
+  border-right: 1px solid #D1D9E6;
+  border-radius: 0 30px 0 0;
+  flex-shrink: 0;
+}
+
+.sidebar .logo {
+  margin-bottom: 50px;
+}
+
+.sidebar .logo img {
+  width: 40px;
+  height: auto;
+}
+
+.sidebar .menu-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  flex: 1;
+  width: 100%;
+  margin-left: -10px;
+}
+
+.sidebar .sidebar-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.sidebar .user-footer {
+  margin-top: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-left: -10px;
+  padding-bottom: 10px;
+}
+
+.sidebar i {
+  font-size: 30px;
+  color: #1A3B70;
+  opacity: 0.7;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.sidebar i.active,
+.sidebar .sidebar-link:hover i {
+  opacity: 1;
+}

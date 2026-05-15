@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fiscalizei — Criar Tarefa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/sidebar.css">
+  <link rel="stylesheet" href="../css/tarefa-cadastro.css">
+</head>
+<body>
+
+  <!-- Sidebar injetada via sidebar.js -->
+
+  <main class="content-area">
+    <h1 class="page-title">Criar tarefa</h1>
+
+    <div class="task-form">
+      <div class="input-group">
+        <label for="nome">Nome da Tarefa</label>
+        <input type="text" id="nome" placeholder="Digite o nome da tarefa">
+      </div>
+
+      <div class="input-group">
+        <label for="descricao">Descrição</label>
+        <textarea id="descricao" rows="4" placeholder="Escreva a descrição..."></textarea>
+      </div>
+
+      <div class="input-group">
+        <label for="recorrencia">Recorrência</label>
+        <select id="recorrencia">
+          <option value="" disabled selected>Selecione</option>
+          <option value="diaria">Diária</option>
+          <option value="semanal">Semanal</option>
+          <option value="mensal">Mensal</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label for="atribuicao">Atribuição</label>
+        <select id="atribuicao">
+          <option value="" disabled selected>Selecione</option>
+          <option value="fiscal_01">Fiscal 01</option>
+          <option value="fiscal_02">Fiscal 02</option>
+        </select>
+      </div>
+
+      <div class="feedback" id="feedback"></div>
+
+      <button id="btn-criar" class="btn-submit">Criar tarefa</button>
+    </div>
+  </main>
+
+  <script src="../js/sidebar.js"></script>
+  <script src="../js/tarefa-cadastro.js"></script>
+</body>
+</html>

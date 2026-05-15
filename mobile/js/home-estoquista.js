@@ -121,8 +121,9 @@ window.onload = function() {
     fetch('http://localhost:8080/api/tarefa')
         .then(response => response.json())
         .then(data => {
-            tasks = data; // Armazena o retorno da API na variável global
+            tasks = data;
             loadTasks();
         })
         .catch(err => console.error("Erro ao carregar tarefas:", err));
 };
+}

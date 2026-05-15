@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fiscalizei — Aprovação de Tarefas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/sidebar.css">
+  <link rel="stylesheet" href="../css/aprovar-tarefa.css">
+</head>
+<body>
+
+  <!-- Sidebar injetada via sidebar.js -->
+
+  <main class="content-area">
+    <h1 class="page-title">Aprovação de tarefas</h1>
+
+    <section class="approval-container">
+      <div class="image-section">
+        <h3>Foto enviada</h3>
+        <div class="task-image">
+          <img src="/assetsport/estoque.jpeg" alt="Foto da tarefa">
+        </div>
+        <p class="timestamp" id="timestamp">Horário do envio: —</p>
+      </div>
+
+      <div class="comment-section">
+        <h3>Comentário</h3>
+        <div class="comment-box" id="comentario">
+          Realizado o estoque de mercadoria x, segue a foto em anexo
+        </div>
+      </div>
+
+      <!-- Feedback toast -->
+      <div class="toast" id="toast"></div>
+
+      <div class="actions">
+        <button id="btn-reprovar" class="btn-reprovar">Reprovar</button>
+        <button id="btn-aprovar"  class="btn-aprovar">Aprovar</button>
+      </div>
+
+      <button onclick="history.back()" class="btn-voltar">Voltar</button>
+    </section>
+  </main>
+
+  <script src="../js/sidebar.js"></script>
+  <script src="../js/aprovar-tarefa.js"></script>
+</body>
+</html>
