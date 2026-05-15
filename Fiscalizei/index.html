@@ -1,0 +1,171 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+
+  <!-- ApexCharts -->
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <title>Dashboard</title>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+<div class="logo">
+    <img src=""C:\Users\giova\Downloads\Gemini_Generated_Image_v5ykkjv5ykkjv5yk-Photoroom 1.png"" alt="logo">
+</div>
+
+      <nav class="menu">
+        <i class="fa-solid fa-chart-column active"></i>
+        <i class="fa-solid fa-plus"></i>
+        <i class="fa-solid fa-circle-check"></i>
+      </nav>
+
+      <div class="perfil-icon">
+        <i class="fa-regular fa-circle-user"></i>
+      </div>
+
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main-content">
+
+      <h1>Dashboard</h1>
+
+      <div class="dashboard-grid">
+
+        <!-- LEFT -->
+        <div class="left-side">
+
+          <!-- BAR CHART -->
+          <section class="card chart-card">
+
+            <h3>Produtividade da semana</h3>
+
+            <div id="bar-chart"></div>
+
+          </section>
+
+          <!-- DONUT -->
+          <section class="card donut-card">
+
+            <h3>Produtividade do dia</h3>
+
+            <div class="donut-content">
+
+              <div class="donut">
+                <div class="circle">
+                  <span>72</span>
+                </div>
+              </div>
+
+              <div class="legend">
+
+                <div class="legend-item">
+                  <span class="color color1"></span>
+                  Label 1
+                </div>
+
+                <div class="legend-item">
+                  <span class="color color2"></span>
+                  Label 2
+                </div>
+
+                <div class="legend-item">
+                  <span class="color color3"></span>
+                  Label 3
+                </div>
+
+                <div class="legend-item">
+                  <span class="color color4"></span>
+                  Label 4
+                </div>
+
+                <div class="legend-item">
+                  <span class="color color5"></span>
+                  Label 5
+                </div>
+
+              </div>
+
+            </div>
+
+          </section>
+
+        </div>
+
+        <!-- RIGHT -->
+        <section class="tasks-panel">
+
+          <h2>Tarefas criadas</h2>
+
+          <div class="task-list">
+
+            <div class="task-card">
+              <div class="task-left">
+                <i class="fa-solid fa-clipboard-list"></i>
+
+                <div>
+                  <h4>Conferir recebimento da carga</h4>
+                  <p>ID: #TH123</p>
+                </div>
+              </div>
+
+              <span class="status">Pendente</span>
+            </div>
+
+            <div class="task-card">
+              <div class="task-left">
+                <i class="fa-solid fa-clipboard-list"></i>
+
+                <div>
+                  <h4>Verificar qualidade do produto</h4>
+                  <p>ID: #TH124</p>
+                </div>
+              </div>
+
+              <span class="status">Pendente</span>
+            </div>
+
+            <div class="task-card">
+              <div class="task-left">
+                <i class="fa-solid fa-clipboard-list"></i>
+
+                <div>
+                  <h4>Organizar estoque</h4>
+                  <p>ID: #TH125</p>
+                </div>
+              </div>
+
+              <span class="status">Pendente</span>
+            </div>
+
+          </div>
+
+        </section>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
