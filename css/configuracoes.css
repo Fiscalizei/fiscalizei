@@ -1,0 +1,166 @@
+/* ============================================================
+   FISCALIZEI — configuracoes.css
+   ============================================================ */
+
+.config-container {
+    padding: 30px 20px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* ── Formulário ──────────────────────────────────────────── */
+.config-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.config-input-group {
+    border-bottom: 1px solid #CBD5E1;
+    padding-bottom: 8px;
+}
+
+.config-input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    font-size: 15px;
+    font-family: inherit;
+    color: #1E2937;
+    text-align: center;
+    outline: none;
+    padding: 4px 0;
+}
+
+.config-input::placeholder { color: #94A3B8; }
+
+.config-input[readonly] {
+    color: #94A3B8;
+    cursor: default;
+}
+
+/* ── Label da foto ───────────────────────────────────────── */
+.config-foto-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1E40AF;
+    text-align: center;
+    margin-top: 4px;
+}
+
+/* ── Área de preview — tamanho fixo, não clicável ─────────── */
+.upload-area {
+    border: 2px dashed #CBD5E1;
+    border-radius: 16px;
+    width: 100%;
+    height: 160px;        /* altura fixa — não muda com ou sem foto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;     /* garante que a foto não vaze do container */
+    background: white;
+    flex-shrink: 0;       /* impede que o flex comprima a caixa */
+}
+
+.upload-icone {
+    font-size: 36px;
+    color: #CBD5E1;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Foto ocupa todo o espaço fixo da caixa */
+.upload-preview {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 14px;
+    display: none;        /* começa escondida — JS exibe quando há foto */
+}
+
+/* ── Botão selecionar foto ───────────────────────────────── */
+.btn-selecionar-foto {
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    color: #1E40AF;
+    border: 2px solid #1E40AF;
+    border-radius: 9999px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    font-family: inherit;
+}
+.btn-selecionar-foto:hover {
+    background: #EFF6FF;
+}
+.btn-selecionar-foto:active {
+    transform: scale(0.97);
+}
+
+/* ── Mensagem de sucesso do envio da foto ────────────────── */
+.foto-sucesso {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #D1FAE5;
+    color: #065F46;
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    animation: fadeIn 0.3s ease;
+}
+
+.foto-sucesso.visivel {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Botão Salvar ─────────────────────────────────────────── */
+.btn-salvar {
+    width: 100%;
+    padding: 15px;
+    background: #1E40AF;
+    color: white;
+    border: none;
+    border-radius: 9999px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    font-family: inherit;
+}
+.btn-salvar:hover  { background: #1730A0; }
+.btn-salvar:active { transform: scale(0.97); }
+.btn-salvar:disabled {
+    background: #93C5FD;
+    cursor: not-allowed;
+}
+
+/* ── Botão Voltar ─────────────────────────────────────────── */
+.btn-voltar {
+    width: 100%;
+    padding: 14px;
+    background: #1E40AF;
+    color: white;
+    border: none;
+    border-radius: 9999px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    font-family: inherit;
+}
+.btn-voltar:hover  { background: #1730A0; }
+.btn-voltar:active { transform: scale(0.97); }

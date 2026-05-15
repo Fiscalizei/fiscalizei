@@ -78,7 +78,8 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('user', JSON.stringify({
                 nome: dados.nome,
                 email: dados.email,
-                role: dados.role
+                role: dados.role,
+                id: dados.id
             }));
 
             // Redirecionamento baseado no role

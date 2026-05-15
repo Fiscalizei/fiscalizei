@@ -187,3 +187,11 @@ body {
 }
 .sidebar-btn-voltar:hover  { background: #1730A0; }
 .sidebar-btn-voltar:active { transform: scale(0.97); }
+
+/* ── Foto de perfil no avatar ────────────────────────────── */
+.sidebar-avatar-foto {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}

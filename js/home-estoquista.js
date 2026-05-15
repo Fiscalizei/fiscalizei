@@ -3,8 +3,9 @@
 
 async function todasTarefas() {
     var token = localStorage.getItem('token') || '';
+    var userData = JSON.parse(localStorage.getItem('user') || '{}');
 
-    var resposta = await fetch('http://localhost:8080/api/tarefa', {
+    var resposta = await fetch(`http://localhost:8080/api/tarefa/colaborador/${userData.id}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -21,13 +22,6 @@ async function todasTarefas() {
     return await resposta.json();
 }
 
-// var tasks = [
-//     { title: "Conferir recebimento da carga", subtitle: "Corredor A", id: "TH123", status: "pendente"  },
-//     { title: "Conferir recebimento da carga", subtitle: "Corredor B", id: "TH124", status: "progresso" },
-//     { title: "Verificar qualidade do produto", subtitle: "Armazém 1", id: "TH125", status: "concluida" },
-//     { title: "Organizar estoque",              subtitle: "Seção C",   id: "TH126", status: "pendente"  },
-//     { title: "Reabastecer prateleiras",        subtitle: "Corredor D",id: "TH127", status: "progresso" }
-// ];
 
 var tasks = todasTarefas();
 
@@ -54,10 +48,6 @@ function createTaskCard(task) {
     card.className = 'task-card';
     card.style.cursor = 'pointer';
 
-    // Mapeamento:
-    // title -> task.descricao
-    // subtitle -> task.recorrencia
-    // id -> task.id
     card.innerHTML = ''
         + '<div class="task-icon">'
         +     '<img src="recursos/imagens/icon-task.svg" alt="">'
