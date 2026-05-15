@@ -50,7 +50,7 @@ function createTaskCard(task) {
 
     card.innerHTML = ''
         + '<div class="task-icon">'
-        +     '<img src="recursos/imagens/icon-task.svg" alt="">'
+        +     '<img src="../recursos/imagens/icon-task.svg" alt="">'
         + '</div>'
         + '<div class="task-content">'
         +     '<div class="task-title">'      + task.descricao    + '</div>'
