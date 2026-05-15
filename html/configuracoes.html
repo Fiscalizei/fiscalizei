@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FISCALIZEI - Configurações</title>
+    <link rel="stylesheet" href="../css/home-estoquista.css">
+    <link rel="stylesheet" href="../css/configuracoes.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img class="logo-text" src="../recursos/imagens/logoMobile.svg" alt="Fiscalizei">
+        </div>
+        <div class="menu-btn" onclick="sidebarAbrir()">☰</div>
+    </div>
+
+    <div class="config-container">
+
+        <div class="config-form">
+            <div class="config-input-group">
+                <input type="text" id="inputNome" class="config-input" placeholder="Nome" readonly>
+            </div>
+            <div class="config-input-group">
+                <input type="text" id="inputCargo" class="config-input" placeholder="Cargo" readonly>
+            </div>
+
+            <p class="config-foto-label">Adicionar foto</p>
+
+            <!-- Caixa de tamanho fixo — só exibe preview, não clicável -->
+            <div class="upload-area" id="uploadArea">
+                <img id="uploadPreview" class="upload-preview" alt="Preview">
+                <span class="upload-icone" id="uploadIcone">&#128444;</span>
+            </div>
+
+            <!-- Botão separado para selecionar foto -->
+            <button class="btn-selecionar-foto" onclick="solicitarFotoPerfil()">
+                Selecionar foto
+            </button>
+
+            <button class="btn-salvar" id="btnSalvar" onclick="salvarConfiguracoes()">Salvar</button>
+        </div>
+
+        <button class="btn-voltar" onclick="voltarParaLista()">Voltar</button>
+    </div>
+
+    <script src="../js/sidebar.js"></script>
+    <script src="../js/configuracoes.js"></script>
+</body>
+</html>

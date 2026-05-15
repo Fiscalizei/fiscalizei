@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Define o padrão de caracteres (acentos, etc.) -->
+    <meta charset="UTF-8">
+
+    <!-- Faz o site se adaptar direitinho no celular -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Nome que aparece na aba do navegador -->
+    <title>Fiscalizei Login</title>
+
+    <!-- Importando uma fonte mais bonita do Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Ligando o arquivo de estilos (CSS) -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <!-- Essa é a "caixa principal" de toda a tela -->
+    <main class="login-container">
+        
+        <!-- Essa parte é só a imagem lateral (aparece só no computador) -->
+        <section class="image-section">
+            <img src="../recursos/imagens/entregador.jpg.png" alt="Entregador Fiscalizei">
+        </section>
+
+        <!-- Aqui fica a parte importante: o formulário -->
+        <section class="form-section">
+
+            <!-- Caixa do login -->
+            <div id="login-box" class="content-box">
+                
+                <!-- Logo da empresa -->
+                <img src="../recursos/imagens/logo.png.png" alt="Logo Fiscalizei" class="logo">
+                
+                <!-- Formulário onde o usuário digita os dados -->
+                <form id="loginForm">
+                    
+                    <!-- Campo de e-mail -->
+                    <div class="input-group">
+                        <input type="email" id="email" placeholder="E-mail" required>
+                    </div>
+                    
+                    <!-- Campo de senha -->
+                    <div class="input-group password-group">
+                        <input type="password" id="senha" placeholder="Senha" required>
+
+                        <!-- Olhinho pra mostrar/esconder a senha -->
+                        <span class="toggle-password" id="togglePassword">👁️</span>
+                    </div>
+
+                    <!-- Botão para entrar -->
+                    <button type="submit" class="btn-login">Conectar</button>
+                </form>
+            </div>
+
+            <!-- Essa parte aparece enquanto está carregando -->
+            <div id="loading-box" class="content-box hidden">
+                <img src="../recursos/imagens/logo.png.png" alt="Logo Fiscalizei" class="logo">
+                
+                <!-- A bolinha girando -->
+                <div class="spinner"></div>
+                
+                <!-- Texto simples -->
+                <p class="loading-text">Carregando</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Arquivo JavaScript (onde fica a lógica) -->
+    <script src="../js/script.js"></script>
+</body>
+</html>
