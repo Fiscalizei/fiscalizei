@@ -37,7 +37,6 @@ var tabAtiva = 'afazer';
 
 function abrirTarefa(id) {
     window.location.href = 'detalhe-tarefa.html?id=' + id;
-}
 
 // ─── Cards de tarefas (Ajustado para os novos campos) ──────────────
 function createTaskCard(task) {
