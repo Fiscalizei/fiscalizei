@@ -1,0 +1,141 @@
+/* RESET E FONTE UNIFORME */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    background-color: #E6EEFA; /* Azul claro do fundo */
+    height: 100vh;
+    display: flex;
+    overflow: hidden;
+}
+
+/* SIDEBAR BRANCA */
+.sidebar {
+    width: 90px;
+    background-color: #F8FAFD; /* Branco azulado da barra lateral */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 0 20px 20px;
+    border-right: 1px solid #D1D9E6;
+    border-radius: 0 30px 0 0; /* Arredondado conforme imagem */
+    flex-shrink: 0;
+}
+
+.logo {
+    margin-bottom: 50px;
+}
+
+.logo img {
+    width: 40px; /* Logo pequena no canto */
+    height: auto;
+}
+
+.menu-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    flex: 1;
+    width: 100%;
+    margin-left: -10px;
+}
+
+.user-footer {
+    margin-top: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-left: -10px;
+    padding-bottom: 10px;
+}
+
+/* CORES DOS ÍCONES */
+.sidebar i {
+    font-size: 30px;
+    color: #1A3B70; /* Azul marinho escuro */
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.sidebar i.active {
+    opacity: 1;
+}
+
+/* ÁREA DO CONTEÚDO */
+.content-area {
+    flex: 1;
+    padding: 50px 70px;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-title {
+    color: #1A3B70; /* Cor igual à da imagem */
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 40px;
+}
+
+/* FORMULÁRIO CENTRALIZADO */
+.task-form {
+    width: 100%;
+    max-width: 550px;
+    align-self: center;
+}
+
+.input-group {
+    margin-bottom: 25px;
+}
+
+.input-group label {
+    display: block;
+    color: #1A3B70; /* Texto azul escuro */
+    font-weight: 700;
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+/* CAMPOS BRANCOS */
+.input-group input, 
+.input-group select,
+.input-group textarea {
+    width: 100%;
+    padding: 18px;
+    border: none;
+    border-radius: 12px;
+    background-color: #FFFFFF; /* Fundo branco dos campos */
+    font-size: 1.1rem;
+    outline: none;
+    color: #333;
+}
+
+/* TRAVA DO TAMANHO DA DESCRIÇÃO */
+.input-group textarea {
+    resize: none;
+    font-family: inherit;
+}
+
+/* BOTÃO LARANJA */
+.btn-submit {
+    background-color: #F38D31; /* Laranja oficial */
+    color: white;
+    border: none;
+    padding: 15px 60px;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: block;
+    margin: 30px auto 0;
+}
+
+.btn-submit:hover {
+    background-color: #E27D26;
+}
