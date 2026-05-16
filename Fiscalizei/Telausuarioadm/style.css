@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #dce3f7;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 100px;
+  background: #fff;
+  border-radius: 0 20px 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 0;
+}
+
+.logo img {
+  width: 60px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.menu i,
+.perfil-icon i {
+  font-size: 40px;
+  color: #304d8b;
+  cursor: pointer;
+}
+
+.active {
+  color: #1f3e82;
+}
+
+/* MAIN */
+.main-content {
+  flex: 1;
+  padding: 55px 200px;
+  max-width: 1500px;
+}
+
+.main-content h1 {
+  font-size: 60px;
+  color: #304d8b;
+  margin-bottom: 30px;
+}
+
+.profile {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 60px;
+  position: relative;
+}
+
+.avatar input {
+  display: none;
+}
+
+.camera-icon {
+  position: relative;   
+  display: block;
+  margin-top: 10px;     
+  font-size: 18px;      
+  background: none;     
+  color: #304d8b;       
+  cursor: pointer;
+  text-align: center;
+}
+
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #304d8b;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.edit-icon {
+  margin-left: 10px;
+  color: #304d8b;
+  cursor: pointer;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.save-btn, .back-btn {
+  background: #304d8b;
+  color: #fff;
+  border: none;
+  padding: 14px 40px;
+  border-radius: 25px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.save-btn:hover, .back-btn:hover {
+  background: #1f3e82;
+}
+
+
+
