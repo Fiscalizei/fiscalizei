@@ -6,7 +6,6 @@
 
 const Sidebar = (() => {
   const PAGES = {
-    dashboard: { href: 'dashboard.html', icon: 'bx-bar-chart-alt-2', label: 'Dashboard' },
     criar:     { href: 'tarefa-cadastro.html', icon: 'bx-plus', label: 'Criar tarefa' },
     aprovacao: { href: 'aprovar-tarefa.html', icon: 'bx-check-circle', label: 'Aprovação' },
   };
@@ -19,7 +18,7 @@ const Sidebar = (() => {
     const logo = document.createElement('div');
     logo.className = 'logo';
     const logoImg = document.createElement('img');
-    logoImg.src = '/assetsport/logo_fiscalizei.png';
+    logoImg.src = '../../assetsport/logo_fiscalizei.png';
     logoImg.alt = 'Fiscalizei';
     logo.appendChild(logoImg);
     sidebar.appendChild(logo);

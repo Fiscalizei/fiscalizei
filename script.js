@@ -85,10 +85,10 @@ document.addEventListener('DOMContentLoaded', () => {
             // Redirecionamento baseado no role
             if (dados.role === 'ADMIN') {
                 alert(`Bem-vindo, ${dados.nome || 'Administrador'}!`);
-                window.location.href = 'painel-geral.html';
+                window.location.href = 'desktop/html/tarefa-cadastro.html';
             } 
             else if (dados.role === 'COLABORADOR') {
-                window.location.href = 'home-estoquista.html';
+                window.location.href = 'mobile/html/home-estoquista.html';
             } 
             else {
                 alert('Perfil de usuário não reconhecido.');

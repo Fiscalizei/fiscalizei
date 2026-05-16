@@ -16,7 +16,7 @@
   <main class="content-area">
     <h1 class="page-title">Criar tarefa</h1>
 
-    <div class="task-form">
+    <form class="task-form" id="taskForm">
       <div class="input-group">
         <label for="nome">Nome da Tarefa</label>
         <input type="text" id="nome" placeholder="Digite o nome da tarefa">
@@ -31,25 +31,23 @@
         <label for="recorrencia">Recorrência</label>
         <select id="recorrencia">
           <option value="" disabled selected>Selecione</option>
-          <option value="diaria">Diária</option>
-          <option value="semanal">Semanal</option>
-          <option value="mensal">Mensal</option>
+          <option value="DIARIA">Diária</option>
+          <option value="SEMANAL">Semanal</option>
+          <option value="MENSAL">Mensal</option>
         </select>
       </div>
 
       <div class="input-group">
-        <label for="atribuicao">Atribuição</label>
-        <select id="atribuicao">
-          <option value="" disabled selected>Selecione</option>
-          <option value="fiscal_01">Fiscal 01</option>
-          <option value="fiscal_02">Fiscal 02</option>
+        <label for="usuarioAtribuidoId">Atribuição</label>
+        <select id="usuarioAtribuidoId">
+          <option value="" disabled selected>Carregando colaboradores...</option>
         </select>
       </div>
 
       <div class="feedback" id="feedback"></div>
 
       <button id="btn-criar" class="btn-submit">Criar tarefa</button>
-    </div>
+    </form>
   </main>
 
   <script src="../js/sidebar.js"></script>

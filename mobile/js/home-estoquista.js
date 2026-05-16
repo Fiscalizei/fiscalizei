@@ -37,6 +37,7 @@ var tabAtiva = 'afazer';
 
 function abrirTarefa(id) {
     window.location.href = 'detalhe-tarefa.html?id=' + id;
+}
 
 // ─── Cards de tarefas (Ajustado para os novos campos) ──────────────
 function createTaskCard(task) {
@@ -49,7 +50,7 @@ function createTaskCard(task) {
 
     card.innerHTML = ''
         + '<div class="task-icon">'
-        +     '<img src="../recursos/imagens/icon-task.svg" alt="">'
+        +     '<img src="../../assetsport/icon-task.svg" alt="">'
         + '</div>'
         + '<div class="task-content">'
         +     '<div class="task-title">'      + task.descricao    + '</div>'
@@ -126,4 +127,3 @@ window.onload = function() {
         })
         .catch(err => console.error("Erro ao carregar tarefas:", err));
 };
-}

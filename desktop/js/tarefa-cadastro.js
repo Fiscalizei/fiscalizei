@@ -2,25 +2,35 @@
 
 Sidebar.init('criar');
 
-const API_URL = 'http://localhost/api/tarefa';
+const API_URL = 'http://localhost:8080/api/tarefa';
+const COLABORADORES_URL = 'http://localhost:8080/api/usuario/colaboradores';
 
+const taskForm = document.getElementById('taskForm');
 const btn      = document.getElementById('btn-criar');
 const feedback = document.getElementById('feedback');
+const selectUsuario = document.getElementById('usuarioAtribuidoId');
+
+function getAdminCriadorId() {
+  const userData = JSON.parse(localStorage.getItem('user') || '{}');
+  return userData.id || null;
+}
 
 function getFormData() {
   return {
-    nome:       document.getElementById('nome').value.trim(),
-    descricao:  document.getElementById('descricao').value.trim(),
+    nome: document.getElementById('nome').value.trim(),
+    descricao: document.getElementById('descricao').value.trim(),
     recorrencia: document.getElementById('recorrencia').value,
-    atribuicao: document.getElementById('atribuicao').value,
+    usuarioAtribuidoId: Number(selectUsuario.value),
+    adminCriadorId: getAdminCriadorId(),
   };
 }
 
 function validate(data) {
-  if (!data.nome)        return 'Informe o nome da tarefa.';
-  if (!data.descricao)   return 'Informe a descrição.';
+  if (!data.nome) return 'Informe o nome da tarefa.';
+  if (!data.descricao) return 'Informe a descrição.';
   if (!data.recorrencia) return 'Selecione a recorrência.';
-  if (!data.atribuicao)  return 'Selecione a atribuição.';
+  if (!data.usuarioAtribuidoId) return 'Selecione o usuário atribuído.';
+  if (!data.adminCriadorId) return 'Não foi possível identificar o administrador logado.';
   return null;
 }
 
@@ -29,11 +39,50 @@ function showFeedback(msg, type) {
   feedback.className = `feedback ${type}`;
 }
 
-btn.addEventListener('click', async () => {
-  showFeedback('', '');
-  const data = getFormData();
+function resetForm() {
+  document.getElementById('nome').value = '';
+  document.getElementById('descricao').value = '';
+  document.getElementById('recorrencia').selectedIndex = 0;
+  selectUsuario.selectedIndex = 0;
+}
 
+async function carregarColaboradores() {
+  if (!selectUsuario) return;
+
+  selectUsuario.innerHTML = '<option value="" disabled selected>Carregando colaboradores...</option>';
+
+  try {
+    const resposta = await fetch(COLABORADORES_URL, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    if (!resposta.ok) {
+      throw new Error(`Erro ${resposta.status}`);
+    }
+
+    const colaboradores = await resposta.json();
+    selectUsuario.innerHTML = '<option value="" disabled selected>Selecione</option>';
+
+    colaboradores.forEach((colaborador) => {
+      const option = document.createElement('option');
+      option.value = colaborador.id;
+      option.textContent = colaborador.nome;
+      selectUsuario.appendChild(option);
+    });
+  } catch (erro) {
+    selectUsuario.innerHTML = '<option value="" disabled selected>Não foi possível carregar</option>';
+    showFeedback(`Falha ao carregar colaboradores: ${erro.message}`, 'error');
+  }
+}
+
+taskForm.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  showFeedback('', '');
+
+  const data = getFormData();
   const error = validate(data);
+
   if (error) {
     showFeedback(error, 'error');
     return;
@@ -55,13 +104,7 @@ btn.addEventListener('click', async () => {
     }
 
     showFeedback('Tarefa criada com sucesso!', 'success');
-
-    // Limpa o formulário
-    document.getElementById('nome').value = '';
-    document.getElementById('descricao').value = '';
-    document.getElementById('recorrencia').selectedIndex = 0;
-    document.getElementById('atribuicao').selectedIndex = 0;
-
+    resetForm();
   } catch (err) {
     showFeedback(`Falha ao criar tarefa: ${err.message}`, 'error');
   } finally {
@@ -69,3 +112,5 @@ btn.addEventListener('click', async () => {
     btn.textContent = 'Criar tarefa';
   }
 });
+
+carregarColaboradores();

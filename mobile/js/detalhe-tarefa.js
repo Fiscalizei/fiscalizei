@@ -154,7 +154,7 @@ function renderizarTarefa(tarefa) {
     var html = ''
         + '<div class="detalhe-container">'
 
-        +     '<h1 class="detalhe-titulo">Tarefa: ' + tarefa.titulo + '</h1>'
+        +     '<h1 class="detalhe-titulo">Tarefa: ' + tarefa.nome + '</h1>'
 
         +     '<div class="detalhe-card">'
         +         '<div class="detalhe-card-label">Descrição:</div>'
